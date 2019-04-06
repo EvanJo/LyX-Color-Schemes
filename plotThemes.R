@@ -15,10 +15,9 @@ getColourData=function(thisI){
   
   return(thisColourTheme)
 }
-getColourData(1)
 plotData=rbindlist(lapply(X = 1:length(colourFiles),FUN = getColourData))
 
-ggplot(data = plotData
+p=ggplot(data = plotData
        ,mapping = aes(x = theme
                       ,y = element
                       ,fill = hex)
@@ -27,6 +26,8 @@ ggplot(data = plotData
   geom_text(aes(label = hex)) +
   scale_fill_identity()
 
+dev.new()
+print(p)
 
 #Compare two themes
 diffThemeA='solarized_dark'
@@ -38,7 +39,8 @@ wideData=dcast(plotData[theme==diffThemeA|theme==diffThemeB], element ~ theme,va
 wideData=wideData[eval(parse(text = diffThemeA))!=eval(parse(text =diffThemeB))]
 diffPlotData=melt(wideData,id.vars = 'element',variable.name = 'theme',value.name = 'hex')
 
-ggplot(data = diffPlotData
+dev.new()
+p=ggplot(data = diffPlotData
        ,mapping = aes(x = theme
                       ,y = element
                       ,fill = hex)
@@ -46,3 +48,4 @@ ggplot(data = diffPlotData
   geom_tile() +
   geom_text(aes(label = hex)) +
   scale_fill_identity()
+print(p)
