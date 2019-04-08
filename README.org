@@ -1,5 +1,6 @@
 - Minor tweaks on Joon Ro's [[https://github.com/joonro/LyX-Color-Schemes][Color Schemes for LyX]]
 - The R script plots and compares the different colour themes (see pdf example)
+![light-or-dark](https://github.com/EvanJo/LyX-Color-Schemes/raw/master/light-or-dark.pdf)
 * List of color schemes
 - [[http://www.monokai.nl/blog/2006/07/15/textmate-color-theme/][monokai]] (Thanks to [[https://github.com/chemscobra][Gustavo Leon]])
 - [[https://github.com/atom/one-dark-syntax][One Dark]]
